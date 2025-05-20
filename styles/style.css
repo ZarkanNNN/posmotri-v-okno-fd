@@ -124,11 +124,11 @@ ol {
   min-width: 225px;
   appearance: none;
   border-top: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid currentColor;
   border-left: none;
   border-right: none;
   color: #fff;
-  background-color: #1b1919;
+  background-color: transparent;
 }
 
 /*Чекбокс*/
@@ -170,7 +170,7 @@ ol {
   text-align: center;
   color: #fff;
   background-color: transparent;
-  border: 1px solid #fff;
+  border: 1px solid currentColor;
   cursor: pointer;
 }
 
@@ -205,7 +205,7 @@ ol {
   margin-bottom: 80px;
   grid-area: content__details;
   width: 404px; /*399*/
-  height: 534px;
+  min-height: 534px;
 }
 
 .title {
@@ -247,6 +247,15 @@ ol {
   color: #fff;
 }
 
+.content__card-link:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+}
+
+.content__card-link:active {
+  background-color: #545050;
+}
+
 .content__card-link_current {
   display: block;
   background-color: rgb(84 80 80 / 1);
@@ -255,20 +264,11 @@ ol {
 .content__video-card {
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
 }
 
 .content__video-card:focus {
   outline: none;
-}
-
-.content__video-card:hover {
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 6px;
-}
-
-.content__video-card:active {
-  background-color: #545050;
 }
 
 .content__video-card:focus-visible {
@@ -277,6 +277,7 @@ ol {
 }
 
 .content__video-card-description-container {
+  display: grid;
   flex-grow: 1;
   padding-top: 3px;
 }
@@ -300,6 +301,18 @@ ol {
   font-size: 18px;
   line-height: 16.2px;
   letter-spacing: 0;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.content__video-card-description:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 6px;
 }
 
 .content__video-card-thumbnail {
